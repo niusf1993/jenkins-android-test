@@ -10,8 +10,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-               
-                    sh './gradlew clean assembleRelease'
+                    sh './gradlew clean && rm -rf ./app/build/'
+                    sh './gradlew  assembleRelease'
                 
             }
             post {
@@ -29,8 +29,8 @@ pipeline {
                 branch 'beta'
             }
             steps {
-                
-                    sh './gradlew clean assembleRelease'
+                sh './gradlew clean && rm -rf ./app/build/'
+                    sh './gradlew  assembleRelease'
                 
             }
             post {
@@ -48,8 +48,8 @@ pipeline {
                 branch 'prod'
             }
             steps {
-               
-                    sh './gradlew clean assembleRelease'
+               sh './gradlew clean && rm -rf ./app/build/'
+                    sh './gradlew  assembleRelease'
                 
             }
             post {
